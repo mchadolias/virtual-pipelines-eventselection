@@ -8,7 +8,7 @@ jobs:
 
   build_skim:
    runs-on: ubuntu-latest
-   ccontainer: rootproject/root:${{ matrix.version }}
+   container: rootproject/root:${{ matrix.version }}
    continue-on-error: ${{ matrix.allow_failure }}
    strategy:
     matrix:
@@ -26,4 +26,3 @@ jobs:
           COMPILER=$(root-config --cxx)
           FLAGS=$(root-config --cflags --libs)
           $COMPILER -g -O3 -Wall -Wextra -Wpedantic -o skim skim.cxx $FLAGS
-          
