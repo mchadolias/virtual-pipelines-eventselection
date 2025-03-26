@@ -23,12 +23,12 @@ jobs:
     defaults:
       run:
         shell: bash -el {0}
-   steps:
+    steps:
       - name: checkout repository
         uses: actions/checkout@v4
       - name: Install ROOT
         uses: mamba-org/setup-micromamba@v1
-       with:
+      with:
           environment-name: env
           create-args: root
       - name: build
