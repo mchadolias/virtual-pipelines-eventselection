@@ -18,7 +18,7 @@ jobs:
           FLAGS=$(root-config --cflags --libs)
           $COMPILER -g -O3 -Wall -Wextra -Wpedantic -o skim skim.cxx $FLAGS
 
-  build_skimi_conda:
+  build_skim:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -28,7 +28,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Install ROOT
         uses: mamba-org/setup-micromamba@v1
-      with:
+        with:
           environment-name: env
           create-args: root
       - name: build
@@ -36,4 +36,4 @@ jobs:
           COMPILER=$(root-config --cxx)
           FLAGS=$(root-config --cflags --libs)
           $COMPILER -g -O3 -Wall -Wextra -Wpedantic -o skim skim.cxx $FLAGS
-
+  
